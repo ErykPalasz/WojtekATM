@@ -5,12 +5,12 @@ import java.math.BigInteger;
 public class KontoBankowe {
     private BigInteger numerKonta;
     private String typKonta;
-    private BigInteger stan_konta;
+    private BigInteger stanKonta;
 
     public KontoBankowe(BigInteger numerKonta, String typKonta) {
         this.numerKonta = numerKonta;
         this.typKonta = typKonta;
-        this.stan_konta = BigInteger.valueOf(0);
+        this.stanKonta = BigInteger.valueOf(0);
     }
 
     public BigInteger getNumerKonta() {
@@ -29,12 +29,12 @@ public class KontoBankowe {
         this.typKonta = typKonta;
     }
 
-    public BigInteger getStan_konta() {
-        return stan_konta;
+    public BigInteger getStanKonta() {
+        return stanKonta;
     }
 
-    public void setStan_konta(BigInteger stan_konta) {
-        this.stan_konta = stan_konta;
+    public void setStanKonta(BigInteger stanKonta) {
+        this.stanKonta = stanKonta;
     }
 
 }

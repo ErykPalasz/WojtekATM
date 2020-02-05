@@ -8,14 +8,14 @@ public class KontoKlienta {
     private DaneOsobowe daneOsobowe;
     private Login logowanie;
     private KontoBankowe kontoBankowe;
-    private KontoBankowe[] konta = new KontoBankowe[3];
+    private KontoBankowe[] konta = new KontoBankowe[1];
+    private Timestamp timestamp;
 
     // przy dodawaniu użytkownika, od razu określam jego dane osobowe (imie, nazwisko i pesel) oraz
     // login i hasło. Przy okazji tworzy się puste debetowe konto bankowe.
     public KontoKlienta(String imie, String nazwisko, BigInteger pesel, String login, String haslo){
 
-        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-
+        timestamp = new Timestamp(System.currentTimeMillis());
         daneOsobowe = new DaneOsobowe(imie, nazwisko, pesel);
         logowanie = new Login(login, haslo);
 
@@ -26,8 +26,27 @@ public class KontoKlienta {
         konta[0]=kontoBankowe;
     }
 
-    //todo: add konto bankowe
-    //todo: zobacz konto bankowe
-    //todo: remove konto bankowe
+    //add konto bankowe do kont klienta
+    public void addKontoBankowe(String typKonta){
+        timestamp = new Timestamp(System.currentTimeMillis());
+        BigInteger pesel = daneOsobowe.getPesel();
+        kontoBankowe = new KontoBankowe(pesel.add(BigInteger.valueOf(timestamp.getTime())), typKonta);
+        konta[konta.length - 1] = kontoBankowe; // na ostatniej pozycji dodaj to nowe konto
+    }
+
+    //zobacz kontO bankowe klienta
+    public KontoBankowe getKontoSingle(int idxKonta){
+        return konta[idxKonta];
+    }
+
+    //zobacz kontA bankowe klienta
+    public KontoBankowe[] getKontaArray(){
+        return konta;
+    }
+
+    //wywal przez okno jakieś kontO bankowe klienta
+    public void trashKontoSingle(int idxKonta){
+        konta[idxKonta] = null;
+    }
 
 }
