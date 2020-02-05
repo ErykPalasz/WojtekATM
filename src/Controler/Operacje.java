@@ -5,7 +5,6 @@ import Model.KontoKlienta;
 import java.math.BigInteger;
 
 public class Operacje {
-    //todo pokaż wszystkich klientów (idx, imie, nazwisko, login)
     //todo pokaż jedno konto bankowe jakiegoś klienta
     //todo pokaż wszystkie konta bankowe jakiegoś klienta
     //todo dodaj konto bankowe
@@ -25,6 +24,23 @@ public class Operacje {
     //usun konto klienta?
     public void trashKontoKlienta(int idxKlienta){
         kontaKlientowArray[idxKlienta] = null;
+    }
+
+    private KontoKlienta showKontoKlienta(int idxKlienta){
+        return kontaKlientowArray[idxKlienta];
+    }
+
+    //pokaż wszystkich klientów (idx, imie, nazwisko, login)
+    public void ShowAllKlienci(){
+        for(int i=0; i<kontaKlientowArray.length; i++){
+            System.out.println(
+                    String.valueOf(i) + "_" +
+                    showKontoKlienta(i).getImie() + "_" +
+                    showKontoKlienta(i).getNazwisko() + "_" +
+                    showKontoKlienta(i).getLogin()
+            );
+
+        }
     }
 
 }

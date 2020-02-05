@@ -49,4 +49,10 @@ public class KontoKlienta{
         konta[idxKonta] = null;
     }
 
+    public String getImie(){ return daneOsobowe.getImie(); }
+    public String getNazwisko(){ return daneOsobowe.getNazwisko(); }
+    public BigInteger getPesel(){ return daneOsobowe.getPesel(); }
+    public String getLogin(){return logowanie.getLogin(); }
+    public String getPassword(){ return logowanie.getPassword(); }
+
 }
