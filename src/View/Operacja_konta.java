@@ -21,6 +21,7 @@ public class Operacja_konta {
         });
 
 
+
         wyplac.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -29,6 +30,8 @@ public class Operacja_konta {
         });
     }
 
+
+    
     public static void main(String[] args) {
         JFrame frame = new JFrame("Operacja na koncie");
         frame.setContentPane(new Logowanie().panelOperacje);
