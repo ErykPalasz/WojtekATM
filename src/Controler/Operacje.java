@@ -23,4 +23,8 @@ public class Operacje {
         kontaKlientowArray[kontaKlientowArray.length-1] = new KontoKlienta(imie, nazwisko, pesel, login, haslo);
     }
 
+    public void trashKontoKlienta(int idxKlienta){
+        kontaKlientowArray[idxKlienta] = null;
+    }
+
 }
