@@ -3,7 +3,7 @@ package Model;
 import java.math.BigInteger;
 import java.sql.Timestamp;
 
-public class KontoKlienta {
+public class KontoKlienta{
 
     private DaneOsobowe daneOsobowe;
     private Login logowanie;
