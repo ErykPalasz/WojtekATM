@@ -2,13 +2,14 @@ package Model;
 
 import java.math.BigInteger;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 
 public class KontoKlienta{
 
     private DaneOsobowe daneOsobowe;
     private Login logowanie;
     private KontoBankowe kontoBankowe;
-    private KontoBankowe[] konta = new KontoBankowe[1];
+    private ArrayList<KontoBankowe> konta = new ArrayList<>();
     private Timestamp timestamp;
 
     // przy dodawaniu użytkownika, od razu określam jego dane osobowe (imie, nazwisko i pesel) oraz
@@ -23,36 +24,36 @@ public class KontoKlienta{
         // faktycznego systemu dobierania numerów kont bankowych, a ten wydaje się i tak dość
         // unikalny.
         kontoBankowe = new KontoBankowe(pesel.add(BigInteger.valueOf(timestamp.getTime())), "debetowe");
-        konta[0]=kontoBankowe;
+        konta.add(kontoBankowe);
     }
 
-    //add konto bankowe do kont klienta
+    //add konto bankowe do posiadanych kont klienta
     public void addKontoBankowe(String typKonta){
         timestamp = new Timestamp(System.currentTimeMillis());
         BigInteger pesel = daneOsobowe.getPesel();
         kontoBankowe = new KontoBankowe(pesel.add(BigInteger.valueOf(timestamp.getTime())), typKonta);
-        konta[konta.length - 1] = kontoBankowe; // na ostatniej pozycji dodaj to nowe konto
+        konta.add(kontoBankowe); // na ostatniej pozycji dodaj to nowe konto
     }
 
-    //zobacz kontO bankowe klienta
+    //GET jedno posiadane konto bankowe przez klienta
     public KontoBankowe getKontoSingle(int idxKonta){
-        return konta[idxKonta];
+        return konta.get(idxKonta);
     }
 
-    //zobacz kontA bankowe klienta
-    public KontoBankowe[] getKontaArray(){
+    //GET wszystkie posiadane konta bankowe przez klienta
+    public ArrayList getKontaArray(){
         return konta;
     }
 
-    //wywal przez okno jakieś kontO bankowe klienta
+    //wywal przez okno jakieś jedno konto bankowe klienta
     public void trashKontoSingle(int idxKonta){
-        konta[idxKonta] = null;
+        konta.remove(idxKonta);
     }
 
     public String getImie(){ return daneOsobowe.getImie(); }
     public String getNazwisko(){ return daneOsobowe.getNazwisko(); }
     public BigInteger getPesel(){ return daneOsobowe.getPesel(); }
-    public String getLogin(){return logowanie.getLogin(); }
+    public String getLogin(){ return logowanie.getLogin(); }
     public String getPassword(){ return logowanie.getPassword(); }
 
 }
