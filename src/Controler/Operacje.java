@@ -1,5 +1,6 @@
 package Controler;
 
+import Model.KontoBankowe;
 import Model.KontoKlienta;
 
 import java.math.BigInteger;
@@ -26,21 +27,30 @@ public class Operacje {
         kontaKlientowArray[idxKlienta] = null;
     }
 
-    private KontoKlienta showKontoKlienta(int idxKlienta){
-        return kontaKlientowArray[idxKlienta];
+    public void showKontoKlienta(int idxKlienta){
+        System.out.println(
+                String.valueOf(idxKlienta) + "_" +
+                kontaKlientowArray[idxKlienta].getImie() + "_" +
+                kontaKlientowArray[idxKlienta].getNazwisko() + "_" +
+                kontaKlientowArray[idxKlienta].getLogin()
+        );
     }
 
     //pokaż wszystkich klientów (idx, imie, nazwisko, login)
     public void ShowAllKlienci(){
         for(int i=0; i<kontaKlientowArray.length; i++){
-            System.out.println(
-                    String.valueOf(i) + "_" +
-                    showKontoKlienta(i).getImie() + "_" +
-                    showKontoKlienta(i).getNazwisko() + "_" +
-                    showKontoKlienta(i).getLogin()
-            );
-
+            showKontoKlienta(i);
         }
+    }
+
+    public BigInteger getNumerKonta(int ktoreKonto){
+        return kontaKlientowArray[0].getKontoSingle(ktoreKonto).getNumerKonta();
+    }
+    public String getTypKonta(int ktoreKonto){
+        return kontaKlientowArray[0].getKontoSingle(ktoreKonto).getTypKonta();
+    }
+    public BigInteger getStanKonta(int ktoreKonto){
+        return kontaKlientowArray[0].getKontoSingle(ktoreKonto).getStanKonta();
     }
 
 }
