@@ -42,12 +42,12 @@ public class Stan_konta {
     }
 
 
-    public static void main(String[] args) {
-        JFrame frame = new JFrame("Logowanie");
-        frame.setContentPane(new Logowanie().panelStan);
-
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
-        frame.setVisible(true);
-    }
+//    public static void main(String[] args) {
+//        JFrame frame = new JFrame("Logowanie");
+//        frame.setContentPane(new Logowanie().panelStan);
+//
+//        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        frame.pack();
+//        frame.setVisible(true);
+//    }
 }
