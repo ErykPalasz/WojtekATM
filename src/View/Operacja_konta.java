@@ -32,14 +32,12 @@ public class Operacja_konta {
 
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) {// możesz mu pokazać że masz interfejs klikając w te trujkąty oki
         JFrame frame = new JFrame("Operacja na koncie");
-        frame.setContentPane(new Logowanie().panelOperacje);
+        frame.setContentPane(new  Operacja_konta().panelOperacje);
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
-
-
     }
 }

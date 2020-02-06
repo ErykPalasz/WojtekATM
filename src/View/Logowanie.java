@@ -41,7 +41,7 @@ public class Logowanie {
         });
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) {// nie bo ja wtedy tylko "zbudowałem" apke. bez uruchamiania. teraz ją uruchomiłem
         JFrame frame = new JFrame("Logowanie");
         frame.setContentPane(new Logowanie().panelLog);
 

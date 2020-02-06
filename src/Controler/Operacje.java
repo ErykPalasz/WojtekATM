@@ -12,7 +12,7 @@ public class Operacje {
     //todo dodaj środki do konta bankowego
     //todo odejmij środki z konta bankowego
 
-    //lista kont klientów. można zapisać do pliku. nie wiem jak :D
+    //dynamiczna lista kont klientów. można zapisać do pliku. nie wiem jak :D
     private ArrayList<KontoKlienta> kontaKlientowArray = new ArrayList<>();
 
     //nowe konto klienta
