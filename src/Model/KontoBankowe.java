@@ -7,10 +7,15 @@ public class KontoBankowe {
     KontoBankowe(long numer_konta, long pin) {
         setBankNumber(numer_konta);
         karta = new KartaKred(numer_konta, pin);
-        setBankBalance(0);
+        updateBankBalance(0);
     }
 
-    private void setBankNumber(long bankNumber) {
+    @Deprecated
+    KontoBankowe(){
+        this(0,0);
+    }
+
+    void setBankNumber(long bankNumber) {
         this.bankNumber = bankNumber;
     }
 
@@ -18,12 +23,16 @@ public class KontoBankowe {
         return bankNumber;
     }
 
-    void setBankBalance(long bankBalance) {
+    void updateBankBalance(long bankBalance) {
         this.bankBalance = bankBalance;
     }
 
     long getBankBalance() {
         return bankBalance;
+    }
+
+    void addKartaKred(long pin) {
+        karta = new KartaKred(bankNumber, pin);
     }
 
     long getPin() {

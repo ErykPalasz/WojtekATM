@@ -7,6 +7,11 @@ public class KartaKred {
         this.pin = pin;
     }
 
+    @Deprecated
+    KartaKred(){
+        this(0,0);
+    }
+
     void setNumber(long numer_karty){
         this.number = numer_karty;
     }
