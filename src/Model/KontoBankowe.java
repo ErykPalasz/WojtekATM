@@ -1,40 +1,32 @@
 package Model;
 
-import java.math.BigInteger;
-
 public class KontoBankowe {
-    private BigInteger numerKonta;
-    private String typKonta;
-    private BigInteger stanKonta;
+    private long bankNumber, bankBalance;
+    private KartaKred karta;
 
-    public KontoBankowe(BigInteger numerKonta, String typKonta) {
-        this.numerKonta = numerKonta;
-        this.typKonta = typKonta;
-        this.stanKonta = BigInteger.valueOf(0);
+    KontoBankowe(long numer_konta, long pin) {
+        setBankNumber(numer_konta);
+        karta = new KartaKred(numer_konta, pin);
+        setBankBalance(0);
     }
 
-    public BigInteger getNumerKonta() {
-        return numerKonta;
+    private void setBankNumber(long bankNumber) {
+        this.bankNumber = bankNumber;
     }
 
-    public void setNumerKonta(BigInteger numerKonta) {
-        this.numerKonta = numerKonta;
+    long getBankNumber() {
+        return bankNumber;
     }
 
-    public String getTypKonta() {
-        return typKonta;
+    void setBankBalance(long bankBalance) {
+        this.bankBalance = bankBalance;
     }
 
-    public void setTypKonta(String typKonta) {
-        this.typKonta = typKonta;
+    long getBankBalance() {
+        return bankBalance;
     }
 
-    public BigInteger getStanKonta() {
-        return stanKonta;
+    long getPin() {
+        return karta.getPin();
     }
-
-    public void setStanKonta(BigInteger stanKonta) {
-        this.stanKonta = stanKonta;
-    }
-
 }

@@ -1,6 +1,6 @@
 package View;
 
-import Controler.Operacje;
+import Controler.Transakcje;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -49,7 +49,7 @@ public class Logowanie {
         frame.pack();
         frame.setVisible(true);
 
-        Operacje bankjeden = new Operacje();
+        Transakcje bankjeden = new Transakcje();
 
         bankjeden.addNoweKontoKlienta(
                 "Marek",
