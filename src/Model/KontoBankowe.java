@@ -21,7 +21,7 @@ public class KontoBankowe {
         this(0, 0);
     }
 
-    private void setBankNumber(long bankNumber) {
+    protected void setBankNumber(long bankNumber) {
         this.bankNumber = bankNumber;
     }
 

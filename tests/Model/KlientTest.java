@@ -43,4 +43,29 @@ class KlientTest {
         klient.addKartaDoKonta(0, 1111);
         assertEquals(1111, klient.getKontoBankowe(0).getPin());
     }
+
+    @Test
+    void testArrayKlienci() {
+        klient.addKontobankowe(111122223333L, 1111);
+        klient.addKontobankowe(222233334444L, 2222);
+        arrayKlienci.add(klient);
+
+
+        klient = new Klient("Wojciech", "Cejrowski", "bosoprzezswiat@email.com");
+        klient.addKontobankowe(333344445555L, 3333);
+        klient.addKontobankowe(444455556666L, 4444);
+        arrayKlienci.add(klient);
+
+        assertNotEquals(arrayKlienci.get(0),arrayKlienci.get(1));
+        assertEquals(444455556666L, arrayKlienci.get(1).getKontoBankowe(1).getBankNumber());
+        assertEquals(4444, arrayKlienci.get(1).getKontoBankowe(1).getPin());
+
+        arrayKlienci.get(0).getKontoBankowe(1).setBankBalance(10000L);
+
+        assertAll(
+                () -> assertEquals(0,arrayKlienci.get(0).getKontoBankowe(0).getBankBalance()),
+                () -> assertEquals(10000L, arrayKlienci.get(0).getKontoBankowe(1).getBankBalance())
+        );
+
+    }
 }
