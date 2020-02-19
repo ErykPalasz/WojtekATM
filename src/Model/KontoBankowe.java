@@ -4,17 +4,24 @@ public class KontoBankowe {
     private long bankNumber, bankBalance;
     private KartaKred karta;
 
+    KontoBankowe(long numer_konta, int pin) {
+        setBankNumber(numer_konta);
+        setBankBalance(0);
+        setKartaKred(pin);
+    }
+
+    @Deprecated
     KontoBankowe(long numer_konta) {
         setBankNumber(numer_konta);
-        updateBankBalance(0);
+        setBankBalance(0);
     }
 
     @Deprecated
     KontoBankowe(){
-        this(0);
+        this(0, 0);
     }
 
-    void setBankNumber(long bankNumber) {
+    private void setBankNumber(long bankNumber) {
         this.bankNumber = bankNumber;
     }
 
@@ -22,7 +29,7 @@ public class KontoBankowe {
         return bankNumber;
     }
 
-    void updateBankBalance(long bankBalance) {
+    void setBankBalance(long bankBalance) {
         this.bankBalance = bankBalance;
     }
 
@@ -30,7 +37,8 @@ public class KontoBankowe {
         return bankBalance;
     }
 
-    void addKartaKred(long pin) {
+    @Deprecated
+    void setKartaKred(int pin) {
         karta = new KartaKred(bankNumber, pin);
     }
 

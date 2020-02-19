@@ -1,8 +1,9 @@
 package Model;
 
 public class KartaKred {
-    private long number, pin;
-    KartaKred(long numer_karty, long pin){
+    private long number;
+    private int pin;
+    KartaKred(long numer_karty, int pin){
         this.number = numer_karty;
         this.pin = pin;
     }
@@ -20,7 +21,7 @@ public class KartaKred {
         return number;
     }
 
-    void setPin(long pin){
+    void setPin(int pin){
         this.pin = pin;
     }
 
